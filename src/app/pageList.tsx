@@ -1,8 +1,11 @@
-'use client'
+"use client";
 
 import { useState, useEffect } from "react";
 
-
+type MockDataType = Array<{
+  id: number;
+  title: string;
+}>;
 
 const MOCK_DATA = [
   { id: 1, title: "Page 1" },
@@ -11,7 +14,7 @@ const MOCK_DATA = [
 ];
 
 const PageList = () => {
-  const [pages, setPages] = useState([]);
+  const [pages, setPages] = useState<MockDataType>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,14 +23,14 @@ const PageList = () => {
 
   const fetchPages = async () => {
     // mock api call to and to show spinner for two seconds
-    const data = await new Promise((resolve) => {
+    const data = await new Promise<MockDataType>((resolve) => {
       setTimeout(() => {
         resolve(MOCK_DATA);
       }, 2000);
     });
 
     setPages(data);
-  
+
     setLoading(false);
   };
 
