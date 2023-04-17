@@ -1,5 +1,12 @@
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}", // Note the addition of the `app` directory.
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   darkMode: false,
   theme: {
     extend: {},
@@ -7,5 +14,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('./plugins/loading-indicator')],
-}
+  plugins: [require("./plugins/loading-indicator")],
+};
